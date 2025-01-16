@@ -62,6 +62,19 @@
 	};
 	burgerMenu();
 
+	var closeMenuOnClickOutside = function() {
+    $(document).click(function(event) {
+        var clickOutside = !$(event.target).closest('#ftco-nav, .js-fh5co-nav-toggle').length;
+        var isMenuOpen = $('.js-fh5co-nav-toggle').hasClass('active');
+
+        if (clickOutside && isMenuOpen) {
+            $('.js-fh5co-nav-toggle').removeClass('active');
+            $('#ftco-nav').collapse('hide'); // Menutup menu dropdown
+        }
+    });
+};
+closeMenuOnClickOutside();
+
 
 	var onePageClick = function() {
 
